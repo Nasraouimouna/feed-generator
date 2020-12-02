@@ -1,0 +1,48 @@
+<div class="container flex flex-row flex-wrap w-full px-6 py-3 mx-auto ">
+    <div class="px-3 lg:w-1/2 xlg:w-1/2 md:w-full sm:w-full self-centerd">
+        <app-author-badge [userInfo]="userToEdit"></app-author-badge>
+        <br>
+        <app-user-avatar-uploader class="px-3 py-3 lg:w-1/2 xlg:w-1/2 md:w-full sm:w-full self-centerd"
+            *ngIf="userToEdit?._id" [userId]="userToEdit._id" (uploadPictureEvent)="refresh($event)">
+        </app-user-avatar-uploader>
+    </div>
+    <mat-card class="flex flex-col flex-wrap self-center mx-auto sm:w-full lg:w-1/2">
+        <h3 class="font-bold text-center text-gray-800 "> Info </h3>
+        <form [formGroup]="userForm" #f="ngForm" class="flex flex-col">
+            <mat-form-field>
+                <input matInput color="primary" formControlName="fullusername" placeholder="User Name" />
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput color="primary" formControlName="phone" placeholder="Phone" />
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput color="primary" formControlName="city" placeholder="City" />
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Select Role</mat-label>
+                <mat-select matNativeControl required formControlName="role" required>
+                    <mat-option value="GUEST"> GUEST </mat-option>
+                    <mat-option value="USER"> USER </mat-option>
+                    <mat-option value="ADMIN"> ADMIN </mat-option>
+                </mat-select>
+                <mat-error *ngIf="userForm.controls['role'].hasError('required')">Please choose a Role</mat-error>
+                <mat-hint>{{userForm.value.role}}</mat-hint>
+            </mat-form-field>
+
+
+            <mat-checkbox matInput color="primary" (change)="isGrantedChange($event)" formControlName="isGranted">Is
+                Granted</mat-checkbox>
+            <br>
+            <div class="flex-col w-full py-4">
+                <h1>Assign a Customer</h1>
+                <app-customer-selector [selectedCustomer]="userToEdit?.customer" class="py-4" (onCustomerChangeSelection)="assignCustomerToUser($event)"></app-customer-selector>
+            </div>
+
+            <button mat-button class="bg-blue-300" (click)="updateUserInfoAPI()">Update</button>
+
+        </form>
+
+    </mat-card>

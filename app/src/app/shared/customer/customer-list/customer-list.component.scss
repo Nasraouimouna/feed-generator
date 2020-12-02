@@ -1,0 +1,61 @@
+table {
+    width: 100%;
+  }
+  
+  mat-header-cell,mat-cell{
+    border-bottom: none;
+    border-top: none;
+  }
+  
+  @mixin mat-table-columns($columns) {
+    .mat-column- {
+  
+      @each $colName,
+      $props in $columns {
+  
+        $width: map-get($props, 'width');
+  
+        &#{$colName} {
+          flex: $width;
+          min-width: $width;
+  
+          @if map-has-key($props, 'color') {
+            color: map-get($props, 'color');
+          }
+        }
+      }
+    }
+  }
+  
+  @include mat-table-columns((
+  
+      id: (width: 4rem),
+      fullname: (width: 10rem),
+      adress: (width: 10rem),
+      city:(width:4rem),
+      isLicenced:(width:3rem),
+      logo_url:(width:4rem),
+      actions:(width:6rem)
+  
+  
+  ));
+  th{
+    border-bottom: transparent;
+    font-size: 1rem;
+  }
+  td{
+    border: transparent;
+    padding: 5px;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: blueviolet;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  
+  }
+  
+  

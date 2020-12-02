@@ -1,0 +1,48 @@
+<div class="container flex flex-col justify-center py-3 mx-auto">
+    <div class="container w-full flex-full">
+        <h1 class="font-mono text-center text-blue-700 align-center">All Pictures</h1>
+        <div class="flex mx-auto">
+            <mat-form-field class="justify-start px-12 align-center">
+                <mat-icon matPrefix>search</mat-icon>
+                <input matInput placeholder="Filter" class="px-12 py-3 text-teal-900 rounded-b shadow-md" (keyup)="applyFilter($event.target.value)">
+            </mat-form-field>
+            <div class="spinner-container center align-center" *ngIf="isLoadingResults">
+                <mat-spinner></mat-spinner>
+            </div>
+        </div>
+        <div class="shadow-lg mat-elevation-z8 px-6exi" style="cursor:pointer">
+            <table mat-table [dataSource]="dataSource" matSort class="font-mono">
+                <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+                    <td mat-cell *matCellDef="let gallery"> {{gallery?.picture_title}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="url">
+                    <th mat-header-cell *matHeaderCellDef> Cover </th>
+                    <td mat-cell *matCellDef="let gallery">
+                        <img [src]="getPictureUrl(gallery?.picture_url)" class="w-12 h-12" />
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="user">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Owner </th>
+                    <td mat-cell *matCellDef="let gallery">{{gallery?.owner?.fullusername}}</td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="createAt" class="lg:hidden">
+                    <th mat-header-cell *matHeaderCellDef> Uploaded at </th>
+                    <td mat-cell *matCellDef="let gallery"> {{gallery?.createdAt | date : 'dd.MM.yy, HH:mm'}} </td>
+                </ng-container>
+
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+            </table>
+
+            <mat-paginator [length]="resultsLength" [pageSize]="10" [pageSizeOptions]="[10, 20, 30]"></mat-paginator>
+        </div>
+    </div>
+</div>
+

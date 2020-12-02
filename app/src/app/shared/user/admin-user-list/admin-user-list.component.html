@@ -1,0 +1,73 @@
+<div class="container w-full flex-full">
+    <h1 class="font-mono text-center text-blue-700 align-center">Users List</h1>
+    <div class="flex mx-auto">
+        <mat-form-field class="justify-start px-12 align-center">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput placeholder="Filter" class="px-12 py-3 text-teal-900 rounded-b shadow-md" (keyup)="applyFilter($event.target.value)">
+        </mat-form-field>
+        <div class="flex flex-auto spinner-container center align-center" *ngIf="isLoadingResults">
+            <mat-spinner></mat-spinner>
+        </div>
+
+
+    </div>
+
+
+    <div class="shadow-lg mat-elevation-z8 px-6exi" style="cursor:pointer">
+        <table mat-table [dataSource]="dataSource" matSort matSortActive="createdAt" matSortDirection="asc"
+            matSortDisableClear class="font-mono">
+
+            <ng-container matColumnDef="fullusername">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Fullname </th>
+                <td mat-cell *matCellDef="let user"> {{user?.fullusername}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email" class="sm:hidden">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
+                <td mat-cell *matCellDef="let user"> {{user?.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="_role" class="sm:hidden">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+                <td mat-cell *matCellDef="let user"> {{user?.role}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="avatar">
+                <th mat-header-cell *matHeaderCellDef> Avatar </th>
+                <td mat-cell *matCellDef="let user" class="center">
+                    <img [src]="getAvatar(user?.avatar_url)" alt="avatar" class="w-12 h-12 rounded-full" />
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="customer" class="sm:hidden">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer </th>
+                <td mat-cell *matCellDef="let user">
+                     <img [src]="getLogo(user?.customer?.logo_url)" class="w-12 h-12 rounded-full" />
+                    </td>
+            </ng-container>
+
+            <ng-container matColumnDef="granted" class="sm:hidden">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Granted </th>
+                <td mat-cell *matCellDef="let user"> {{user?.isGranted}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="center text-bold"> Actions </th>
+
+                <td mat-cell *matCellDef="let user" class="flex flex-row justify-between">
+                  <a [routerLink]="['update',user._id]" mat-stroked-button matTooltip="Edit User"><mat-icon color="primary">edit</mat-icon></a>
+                  <button mat-stroked-button matTooltip="Delete User" (click)="deleteUser(user._id)"><mat-icon color="warn">delete</mat-icon></button>
+
+                </td>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+        </table>
+
+        <mat-paginator [length]="resultsLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

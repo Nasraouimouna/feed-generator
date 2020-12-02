@@ -1,0 +1,61 @@
+table {
+    width: 100%;
+  }
+  
+  mat-header-cell,mat-cell{
+    border-bottom: none;
+    border-top: none;
+  }
+  
+  @mixin mat-table-columns($columns) {
+    .mat-column- {
+  
+      @each $colName,
+      $props in $columns {
+  
+        $width: map-get($props, 'width');
+  
+        &#{$colName} {
+          flex: $width;
+          min-width: $width;
+  
+          @if map-has-key($props, 'color') {
+            color: map-get($props, 'color');
+          }
+        }
+      }
+    }
+  }
+  
+  @include mat-table-columns((
+  
+      createAt: (width: 4rem),
+      title: (width: 9rem),
+      description:(width:9rem),
+      picture:(width: 4rem),
+      featured:(width: 3rem),
+      author:(width:7rem),
+      customer:(width:7rem)
+  
+  
+  ));
+  th{
+    border-bottom: transparent;
+    font-size: 1rem;
+  }
+  td{
+    border: transparent;
+    padding: 5px;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: blueviolet;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  
+  }
+  
+  

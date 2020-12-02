@@ -1,0 +1,53 @@
+version: '3' # specify docker-compose version
+
+networks:
+  feedstack:
+
+volumes:
+  mongodb_data:
+    driver: local
+  uploads:
+    driver: local
+
+# Define the services/containers to be run
+services:
+  app:
+    build:
+      context: ./app
+      args:
+        env: ${env}
+    ports:
+      - "80:8080"
+    networks:
+      feedstack:
+
+  server: # name of the first service
+    build: ./api # specify the directory of the Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://ferid:Toto2020*-1@database/digital-feed-generator
+    links:
+      - database
+    depends_on:
+      - database
+    volumes:
+      - uploads:/uploads
+    networks:
+      feedstack:
+
+  database: # name of the third service
+    image: mongo # specify image to build container from
+    container_name: feed-mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: digital-feed-generator
+      MONGO_INITDB_ROOT_USERNAME: ferid
+      MONGO_INITDB_ROOT_PASSWORD: Toto2020*-1
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017" # specify port forewarding
+    networks:
+      feedstack:

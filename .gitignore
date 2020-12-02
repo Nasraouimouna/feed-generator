@@ -1,0 +1,9 @@
+data
+api/.nyc_output
+.api
+.vscode/
+.vscode/symbols.json
+.idea/
+credential.md
+api/uploads
+api/uploads/gallery

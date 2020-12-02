@@ -1,0 +1,10 @@
+db.createUser(
+    {
+        user:"ferid",
+        pwd:"Toto2020*-1",
+        roles:[{
+            role:"readWrite",
+            db:"digital-feed-generator"
+        }]
+    }
+)

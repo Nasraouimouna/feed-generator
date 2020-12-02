@@ -1,0 +1,11 @@
+<mat-card class="w-full">
+    <mat-label class="upload-button">
+            <mat-icon matSuffix>
+                 upload_file
+            </mat-icon>
+            <input type="file" 
+                    ngFileSelect [options]="options" 
+                    (uploadOutput)="onUploadOutput($event)"
+                    [uploadInput]="uploadInput" single>
+    </mat-label>
+</mat-card>

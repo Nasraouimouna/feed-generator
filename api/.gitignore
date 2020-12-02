@@ -1,0 +1,9 @@
+node_modules/
+.vscode/
+.idea/
+.api/
+.nyc_output/
+data/
+.env
+uploads/
+uploads/gallry

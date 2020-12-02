@@ -1,0 +1,59 @@
+<div class="flex-grow min-h-screen">
+    <app-back-navbar></app-back-navbar>
+    <!-- Drawer-->
+    <mat-sidenav-container>
+        <mat-sidenav #adminsidenav (closed)="log('closed')" (opened)="log('opened')" mode="side">
+            <mat-nav-list>
+            
+                <mat-list>    
+                    <mat-list-item>
+                        <mat-icon color="primary">settings</mat-icon>
+                        <a [routerLink]='["/back/settings"]'>
+                            <h4 mat-line>Settings</h4>
+                        </a>
+                        <h4 mat-line></h4>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-icon color="primary">supervisor_account</mat-icon>
+                        <a [routerLink]='["/back/profile"]'>
+                            <h4 mat-line>Profile</h4>
+                        </a>
+                        <h4 mat-line></h4>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-icon color="primary">perm_media</mat-icon>
+                        <a [routerLink]='["/back/gallery"]'>
+                            <h4 mat-line>Gallery</h4>
+                        </a>
+                        <h4 mat-line></h4>
+                    </mat-list-item>
+
+                    <mat-list-item>
+                        <mat-icon color="primary">verified_user</mat-icon>
+                        <a [routerLink]='["/back/users"]'>
+                            <h4 mat-line>Granted Users</h4>
+                        </a>
+                        <h4 mat-line></h4>
+                    </mat-list-item>
+
+                    <mat-list-item>
+                        <mat-icon color="primary">person</mat-icon>
+                        <a [routerLink]='["/back/customer"]'>
+                            <h4 mat-line>Customers</h4>
+                        </a>
+                        <h4 mat-line></h4>
+                    </mat-list-item>
+
+                </mat-list>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <mat-icon (click)="adminsidenav.toggle()" color="accent">menu</mat-icon>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <div class="bg-blue-700 text-gray-200 -my-6 shadow-md h-12">
+        <app-back-footer></app-back-footer>
+    </div>
+</div>

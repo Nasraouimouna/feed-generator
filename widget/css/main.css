@@ -1,0 +1,143 @@
+#output{
+    width:100vw;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 15vh;
+    background-color: #404040;
+    color: white;
+   
+}
+
+.logo > img{
+    height: 90%;
+    padding-left: 5vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.banner {
+    color: white;
+    font-family: 'ITC Avant Garde Gothic Std Bold Condensed';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 3rem;
+    padding:1rem;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+    background-color: #cb3f23;
+    color: white;
+    padding-top:3vh;
+    padding-bottom:3vh;
+    padding-left: 7vw;
+    padding-right: 7vw;
+}
+
+.title-box {
+    background-color: #800000;
+    color: white;
+    font-size: 5vh;
+    width: 60vw;
+    align-self: center;
+    text-align: center;
+    z-index: 2;
+
+}
+
+.title {
+    background-color: #800000;
+    color: white;
+    font-size: 100%;
+    width: 60vw;
+    align-self: center;
+    font-family: 'ITC Avant Garde Gothic Std Bold Condensed';
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+}
+
+
+
+
+
+
+
+.content {
+    display: flex;
+    flex-direction: row ;
+    padding-left:3%;
+    height: 70vh;
+    width: 80vw;
+    background-color: #f8cbad;
+    color: black;
+    margin-top: -3vh;
+    z-index: 1;
+
+}
+
+
+.article-body {
+    width: 30vw;
+    padding:1em;
+    margin-left:1vw;
+    margin-right:1vw;
+}
+
+#article_content_body {
+    padding:3%;
+    font-family: 'ITC Avant Garde Gothic Std Bold Condensed';
+    font-weight: bold;
+    font-size: 7vh;
+
+}
+
+
+.cover {
+    width: 40vw;
+    align-content: space-between;
+    align-self: center;
+    padding-right: 3%;
+}
+
+#article_cover {
+    align-self: center;
+    width: 100%;
+}
+
+.footer {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    height:10vh;
+    background-color: #404040;
+    color: white;
+    font-family: 'ITC Avant Garde Gothic Std Bold Condensed';
+    font-weight: bold;
+    font-style: normal;
+    justify-content: space-between;
+
+}
+
+#article_date{
+    justify-self: left;
+    padding:2%;
+    margin:2%;
+    height: 8vh;
+}
+
+#article_time{
+   justify-self: right;
+   padding:2%;
+   margin:2%;
+   height: 8vh;
+}

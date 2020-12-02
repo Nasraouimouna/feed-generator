@@ -1,0 +1,27 @@
+<h1 class="py-2 text-center bg-gray-200 text-grey-dark">Featured Article</h1>
+<div *ngIf="isThereFeaturedArticle" class="flex flex-col p-3 mx-auto bg-gray-200 rounded shadow">
+  <div>
+    <div [ngStyle]="{'background-image':'url(' + getCover(featuredArticle?.cover?.picture_url )+ ')'}"
+      class="h-64 bg-center bg-cover rounded bg-grey-lighter">
+    </div>
+  </div>
+  <div class="mt-6">
+    <p class="mb-2 text-lg tracking-wide text-bold text-grey-dark">
+      {{featuredArticle?.title}}
+    </p>
+    <p class="text-sm font-bold text-grey-dark">{{featuredArticle?.description}}</p>
+    <p class="text-sm font-hairline text-grey-dark" [innerHTML]="featuredArticle?.content">
+    </p>
+  </div>
+  <div class="mt-6">
+    <p class="flex items-center px-4 py-2 text-white bg-blue-500 rounded shadow shadow-md hover:bg-blue-light">
+      <span class="py-3 text-gray-300 text-bold">Edited at :
+        {{ featuredArticle?.createdAt | date : 'dd/MM/yy @ mm:ss'}}</span>
+    </p>
+  </div>
+</div>
+
+<div *ngIf="!isThereFeaturedArticle" class="flex flex-col p-3 mx-auto bg-gray-200 rounded shadow">
+  <h1 class="font-bold text-blue-700">There's no featured article</h1>
+
+</div>

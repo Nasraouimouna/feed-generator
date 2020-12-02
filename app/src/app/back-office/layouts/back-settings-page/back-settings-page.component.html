@@ -1,0 +1,32 @@
+<div class="container flex flex-col mx-auto py-3">
+    <div class="flex justify-end py-3">
+        <div class="container flex flex-wrap flex-row w-full mx-auto px-6 py-3 ">
+            <div class="lg:w-1/2 xlg:w-1/2 md:w-full sm:w-full self-centerd px-3">
+                <app-author-badge [userInfo]="currentUser"></app-author-badge>
+                <br>
+                <app-user-avatar-uploader class="lg:w-1/2 xlg:w-1/2 md:w-full sm:w-full self-centerd px-3 py-3"
+                    *ngIf="currentUser?._id" [userId]="currentUser._id" (uploadPictureEvent)="refresh($event)">
+                </app-user-avatar-uploader>
+            </div>
+            <mat-card class="mx-auto flex flex-col flex-wrap self-center sm:w-full lg:w-1/2">
+                <h3 class="font-bold text-gray-800 text-center "> Info </h3>
+                <form [formGroup]="userForm" #f="ngForm" class="flex flex-col">
+                    <mat-form-field>
+                        <input matInput color="primary" formControlName="fullusername" placeholder="User Name" />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput color="primary" formControlName="email" placeholder="Email" />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput color="primary" formControlName="phone" placeholder="Phone" />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput color="primary" formControlName="city" placeholder="City" />
+                    </mat-form-field>
+                    <button mat-button class="bg-blue-300" (click)="updateUserInfoAPI()">Update</button>
+
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>

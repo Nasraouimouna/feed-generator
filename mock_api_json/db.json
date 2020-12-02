@@ -1,0 +1,127 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullusername": "Ferid HELALLI",
+      "email": "helaliferid@gmail.com",
+      "password": "toto",
+      "phone": "22 45 79 16",
+      "city": "Mahdia",
+      "avatar_url": "default.png",
+      "role": "supervisor",
+      "isGranted":true
+    },
+    {
+      "id": 2,
+      "fullusername": "Salma HELALI",
+      "email": "salma@gmail.com",
+      "password": "toto",
+      "phone": "22 46 00 16",
+      "city": "Mahdia",
+      "avatar_url": "default.png",
+      "role": "user",
+      "isGranted":true,
+      "customer":1
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "title": "Tennis championship 2020",
+      "description": "Tennis championship 2020",
+      "content": "<h1>Tennis</h1> <p>Adipisicing cupidatat anim consectetur minim velit sint Lorem nisi ipsum enim ullamco consequat proident do. Magna adipisicing ullamco officia velit voluptate do occaecat ipsum elit aliqua exercitation aute aliquip. Veniam irure sit commodo est. Reprehenderit culpa incididunt dolore sit qui. Ex sit voluptate eiusmod reprehenderit dolore. Occaecat cillum in irure elit nulla ex eiusmod consectetur veniam cupidatat. Nostrud id proident sit et exercitation irure incididunt cillum id labore.</p>",
+      "author": "1",
+      "featured_image": "https://8e9lb12st2m615uj3cu0g410-wpengine.netdna-ssl.com/wp-content/uploads/2019/01/Dubai-Tennis-2017-Roger-Federer-1024x576.jpg",
+      "createAt": "04/01/2020",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Tennis Dammn championship",
+      "description": "Tennis Dammn championship 2019",
+      "content": "<h1>future Tennis Dammn</h1> <p>Adipisicing cupidatat anim consectetur minim velit sint Lorem nisi ipsum enim ullamco consequat proident do. Magna adipisicing ullamco officia velit voluptate do occaecat ipsum elit aliqua exercitation aute aliquip. Veniam irure sit commodo est. Reprehenderit culpa incididunt dolore sit qui. Ex sit voluptate eiusmod reprehenderit dolore. Occaecat cillum in irure elit nulla ex eiusmod consectetur veniam cupidatat. Nostrud id proident sit et exercitation irure incididunt cillum id labore.</p>",
+      "author": "1",
+      "featured_image": "https://photoresources.wtatennis.com/photo-resources/2019/12/20/620e03f5-f830-4800-9b92-3d734fd99fa3/Maria-Sharapova-2019-Australian-Open-Getty.jpg?width=1440&height=797",
+      "createAt": "6/01/2020",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "title": "Tennis Homme championship",
+      "description": "Tennis Dammn championship 2019",
+      "content": "<h1>future Tennis Dammn</h1> <p>Adipisicing cupidatat anim consectetur minim velit sint Lorem nisi ipsum enim ullamco consequat proident do. Magna adipisicing ullamco officia velit voluptate do occaecat ipsum elit aliqua exercitation aute aliquip. Veniam irure sit commodo est. Reprehenderit culpa incididunt dolore sit qui. Ex sit voluptate eiusmod reprehenderit dolore. Occaecat cillum in irure elit nulla ex eiusmod consectetur veniam cupidatat. Nostrud id proident sit et exercitation irure incididunt cillum id labore.</p>",
+      "author": "1",
+      "featured_image": "https://photoresources.wtatennis.com/photo-resources/2019/12/20/620e03f5-f830-4800-9b92-3d734fd99fa3/Maria-Sharapova-2019-Australian-Open-Getty.jpg?width=1440&height=797",
+      "createAt": "6/01/2020",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "title": "Tennis championship 2020",
+      "description": "Tennis championship 2020",
+      "content": "<h1>Tennis</h1> <p>Adipisicing cupidatat anim consectetur minim velit sint Lorem nisi ipsum enim ullamco consequat proident do. Magna adipisicing ullamco officia velit voluptate do occaecat ipsum elit aliqua exercitation aute aliquip. Veniam irure sit commodo est. Reprehenderit culpa incididunt dolore sit qui. Ex sit voluptate eiusmod reprehenderit dolore. Occaecat cillum in irure elit nulla ex eiusmod consectetur veniam cupidatat. Nostrud id proident sit et exercitation irure incididunt cillum id labore.</p>",
+      "author": "1",
+      "featured_image": "https://8e9lb12st2m615uj3cu0g410-wpengine.netdna-ssl.com/wp-content/uploads/2019/01/Dubai-Tennis-2017-Roger-Federer-1024x576.jpg",
+      "createAt": "04/01/2020",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "title": "Tennis Dammn championship",
+      "description": "Tennis Dammn championship 2019",
+      "content": "<h1>future Tennis Dammn</h1> <p>Adipisicing cupidatat anim consectetur minim velit sint Lorem nisi ipsum enim ullamco consequat proident do. Magna adipisicing ullamco officia velit voluptate do occaecat ipsum elit aliqua exercitation aute aliquip. Veniam irure sit commodo est. Reprehenderit culpa incididunt dolore sit qui. Ex sit voluptate eiusmod reprehenderit dolore. Occaecat cillum in irure elit nulla ex eiusmod consectetur veniam cupidatat. Nostrud id proident sit et exercitation irure incididunt cillum id labore.</p>",
+      "author": "1",
+      "featured_image": "https://photoresources.wtatennis.com/photo-resources/2019/12/20/620e03f5-f830-4800-9b92-3d734fd99fa3/Maria-Sharapova-2019-Australian-Open-Getty.jpg?width=1440&height=797",
+      "createAt": "6/01/2020",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Tennis Homme championship",
+      "description": "Tennis Dammn championship 2019",
+      "content": "<h1>future Tennis Dammn</h1> <p>Adipisicing cupidatat anim consectetur minim velit sint Lorem nisi ipsum enim ullamco consequat proident do. Magna adipisicing ullamco officia velit voluptate do occaecat ipsum elit aliqua exercitation aute aliquip. Veniam irure sit commodo est. Reprehenderit culpa incididunt dolore sit qui. Ex sit voluptate eiusmod reprehenderit dolore. Occaecat cillum in irure elit nulla ex eiusmod consectetur veniam cupidatat. Nostrud id proident sit et exercitation irure incididunt cillum id labore.</p>",
+      "author": "1",
+      "featured_image": "https://photoresources.wtatennis.com/photo-resources/2019/12/20/620e03f5-f830-4800-9b92-3d734fd99fa3/Maria-Sharapova-2019-Australian-Open-Getty.jpg?width=1440&height=797",
+      "createAt": "6/01/2020",
+      "featured": false
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "title": "ChampionShip2020",
+      "url": "https://8e9lb12st2m615uj3cu0g410-wpengine.netdna-ssl.com/wp-content/uploads/2019/01/Dubai-Tennis-2017-Roger-Federer-1024x576.jpg",
+      "createAt": "04/01/2020",
+      "updatedAt": "08/01/2010",
+      "user": 1
+    },
+    {
+      "id": 2,
+      "title": "Club Erlangen",
+      "url": "https://photoresources.wtatennis.com/photo-resources/2019/12/20/620e03f5-f830-4800-9b92-3d734fd99fa3/Maria-Sharapova-2019-Australian-Open-Getty.jpg?width=1440&height=797",
+      "createAt": "09/01/2020",
+      "updatedAt": "20/01/2010",
+      "user": 1
+    }
+  ],
+  "customers": [
+    {
+      "id": 10000001,
+      "fullname": "Intel Corporation",
+      "adress": "Av Mouna Lisa",
+      "city": "Erlangen",
+      "isLicenced": true,
+      "logo_url": "https://cdn.imgbin.com/6/12/10/imgbin-intel-dell-hewlett-packard-enterprise-computer-logo-intel-logo-AY6k3MvtcAwyUSAJrSc2kP2eC.jpg"
+    },
+    {
+      "id": 10000002,
+      "fullname": "Erlangen Tennis Club",
+      "adress": "Av Lenardo DIVINCI",
+      "city": "Erlangen",
+      "isLicenced": true,
+      "logo_url": "https://f0.pngfuel.com/png/515/616/hallerndorf-heßdorf-eggolsheim-aisch-bamberg-herzogenaurach-png-clip-art-thumbnail.png"
+    }
+  ]
+}
+
+

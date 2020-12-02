@@ -1,0 +1,26 @@
+<mat-menu #userMenu="matMenu">
+    <button mat-menu-item color="accent"
+            [routerLink]='["/front/user-settings"]' routerLinkActive="active-link"   
+            [routerLinkActive]='["active","inactive"]' >
+        Settings
+    <span>
+        <mat-icon>settings</mat-icon>
+    </span>
+    </button>
+    <button mat-menu-item color="accent" (click)="logout()">
+        Logout
+        <span>
+            <mat-icon>logout</mat-icon>
+        </span>
+    </button>
+</mat-menu>
+
+<div class="flex flex-row">
+    <button mat-button [matMenuTriggerFor]="userMenu">
+        <span> {{currentUser?.fullusername}}
+            <mat-icon>arrow_drop_down</mat-icon>
+        </span>
+    </button>
+    <img [src]="getAvatar(currentUser.avatar_url)" alt="avatar"
+        class="w-12 h-12 rounded-full" />
+</div>

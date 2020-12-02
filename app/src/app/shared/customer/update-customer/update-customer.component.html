@@ -1,0 +1,51 @@
+<div class="flex flex-col h-full py-16 mx-auto">
+    <mat-card class="container flex flex-col flex-1 px-3">
+        <mat-card-header class="flex justify-between w-full flex-raw">
+            <mat-card-title class="mb-8 text-3xl text-left">Update Customer</mat-card-title>
+            <img class="right-auto w-12"
+                [src]="getLogo(customerToEdit?.logo_url)"
+                alt="logo">
+        </mat-card-header>
+
+        <form class="px-3 pt-6 pb-8 bg-white" [formGroup]="customerForm">
+            <mat-card-content>
+                <mat-form-field class="w-full">
+                    <input type="text" class="py-4 text-red-500 placeholder-gray-600" matInput color="accent" placeholder="licence" disabled required [value]="customerToEdit?._id">
+                </mat-form-field>
+
+                <mat-form-field class="w-full">
+                    <input type="text" class="py-4" matInput placeholder="Fullname" formControlName="fullname" required>
+                </mat-form-field>
+
+                <mat-form-field class="w-full">
+                    <input type="text" class="py-4" matInput placeholder="Adress" formControlName="adress" required>
+                </mat-form-field>
+
+                <mat-form-field class="w-full">
+                    <input class="py-4" type="text" matInput placeholder="City" formControlName="city" required>
+                </mat-form-field>
+
+                <!-- Licence Activated-->
+                <div class="px-2 py-2 mt-4">
+                    <span class="font-bold text-gray-700">Licence</span>
+                    <div class="mt-2">
+                        <mat-checkbox matInput color="primary"  (change)="isLicencedChange($event)" formControlName="isLicenced">Licenced</mat-checkbox>
+                        {{customerForm?.controls['isLicenced'].value}}
+                        <br>
+                    </div>
+                </div>
+
+            </mat-card-content>
+            <mat-card-actions >
+                <button mat-stroked-button color="accent" class="center" (click)="submitUpdateCustomer()">Save</button>
+            </mat-card-actions>
+        </form>
+
+        <app-customer-logo-uploader class="px-3 py-3 lg:w-1/2 xlg:w-1/2 md:w-full sm:w-full self-centerd" [customerId]="customerToEdit?._id"
+            (uploadPictureEvent)="refresh($event)">
+        </app-customer-logo-uploader>
+
+
+    </mat-card>
+
+</div>

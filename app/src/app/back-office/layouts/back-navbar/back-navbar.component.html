@@ -1,0 +1,45 @@
+<mat-toolbar class="flex justify-start w-full" color="primary">
+    <mat-toolbar-row class="flex justify-between w-full bg-transparent navbar">
+        <div class="flex justify-start align-middle">
+            <div class="flex flex-row block px-2 py-2 font-mono font-extrabold">
+                Administrator Panel
+            </div>
+            <div class="hidden sm:flex">
+                <a [routerLink]='["/back/home"]' routerLinkActive="active-link"
+                    [routerLinkActive]='["active","inactive"]' mat-button>
+                    <mat-icon>home</mat-icon>
+                    Home
+                </a>
+                <a [routerLink]='["/back/customer"]' routerLinkActive="active-link"
+                    [routerLinkActive]='["active","inactive"]' mat-button>
+                    Customers
+                </a>
+                <a [routerLink]='["/back/users"]' routerLinkActive="active-link"
+                    [routerLinkActive]='["active","inactive"]' mat-button>
+                    Users
+                </a>
+                <a [routerLink]='["/back/feeds"]' routerLinkActive="active-link"
+                    [routerLinkActive]='["active","inactive"]' mat-button>
+                    Feeds
+                </a>
+                <a [routerLink]='["/back/gallery"]' routerLinkActive="active-link"
+                    [routerLinkActive]='["active","inactive"]' mat-button>
+                    Gallery
+                </a>
+                <a [routerLink]='["/back/settings"]' routerLinkActive="active-link"
+                    [routerLinkActive]='["active","inactive"]' mat-button>
+                    Settings
+                </a>
+                <a [routerLink]='["/fromt/home"]' routerLinkActive="active-link"
+                    [routerLinkActive]='["active","inactive"]' mat-button>
+                    Front Office
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-row align-middle">
+            <div *ngIf="currentUser" class="">
+                <app-user-logout [currentUser]="currentUser" (onLogout)="logout()"></app-user-logout>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

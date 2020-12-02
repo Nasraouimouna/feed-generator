@@ -1,0 +1,42 @@
+<div class="flex flex-col w-full center align-center">
+
+  <img src="assets/idoormedia_logo.png" alt="logo" class="py-3 center">
+
+  <div class="flex w-full py-3 center">
+    <mat-card class="bg-gray-light center">
+      <mat-card-header>
+        <mat-card-title class="w-full text-center">Login</mat-card-title>
+      </mat-card-header>
+
+      <form class="px-3 pt-6 pb-8 mb-4 bg-white rounded shadow-md" [formGroup]="loginForm" #f>
+        <mat-card-content>
+          <mat-form-field class="w-full">
+            <input type="email" matInput placeholder="email" required formControlName="email">
+            <mat-error *ngIf="loginForm.value.email.invalid || loginForm.hasError">{{getErrorMessage()}}</mat-error>
+            <mat-icon matPrefix class="px-6">email</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <input matInput placeholder="Enter your password" [type]="hide ? 'text' : 'password' "
+              formControlName="password" required>
+            <mat-icon matPrefix class="px-6">lock</mat-icon>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility': 'visibility_off'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-stroked-button color="accent" class="w-full" [disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
+      </form>
+    </mat-card>
+
+  </div>
+  <a mat-stroked-button color="primary" class="justify-end w-24 py-3" [routerLink]="['/register']">Register</a>
+
+          <p class="text-xs font-bold text-center text-gray-500">
+            Digistal Signage Custom Feed Generator
+          </p>
+          <p class="text-xs text-center text-gray-500">
+            &copy;2019 iDoormedia. All rights reserved.
+          </p>
+  </div>

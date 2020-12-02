@@ -1,0 +1,42 @@
+<mat-toolbar class="flex justify-start w-full">
+    <mat-toolbar-row class="flex justify-between w-full bg-transparent navbar">
+        <div class="flex justify-start align-middle">
+            <div class="flex flex-row block px-2 py-2 font-mono font-extrabold">
+                <img src="assets/feed-logo.png" class="w-12 h12" alt="logo">
+            </div>
+            <div class="hidden sm:flex md:block">
+                <a [routerLink]='["/front/home"]' routerLinkActive="active-link"
+                    [routerLinkActive]='["active","inactive"]' mat-button>
+                    <mat-icon>home</mat-icon>
+                    Home
+                </a>
+                <a [routerLink]='["/front/feeds"]' routerLinkActive="active-link"
+                    [routerLinkActive]='["active","inactive"]' mat-button>
+                    Feeds
+                </a>
+                <a [routerLink]='["/front/gallery"]' routerLinkActive="active-link"
+                    [routerLinkActive]='["active","inactive"]' mat-button>
+                    Gallery
+                </a>
+                <a [routerLink]='["/front/settings"]' routerLinkActive="active-link"
+                    [routerLinkActive]='["active","inactive"]' mat-button>
+                    Settings
+                </a>
+            </div>
+        </div>
+
+        <div class="flex flex-row align-middle">
+            <div *ngIf="currentUser" class="">
+                <app-user-logout [currentUser]="currentUser" (onLogout)="logout()"></app-user-logout>
+            </div>
+
+            <div class="" *ngIf="currentUser && currentUser.role=='ADMIN'">
+                <a [routerLink]='["/back"]' mat-button md:text-right>
+                    <mat-icon>menu</mat-icon>
+                    Admin
+                </a>
+            </div>
+        </div>
+    </mat-toolbar-row>
+
+</mat-toolbar>

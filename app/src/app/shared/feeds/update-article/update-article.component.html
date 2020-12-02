@@ -1,0 +1,52 @@
+<div class="flex flex-row justify-center px-3 py-3">
+    <app-author-badge [userInfo]="currentUser" class="px-3"></app-author-badge>
+
+    <div class="container ">
+        <form [formGroup]="articleForm" class="flex flex-col w-full p-10 m-4 bg-white rounded shadow-xl center">
+            <h1 class="font-medium text-center text-blue-800 text-bold">Update Article</h1>
+
+            <div class="w-full px-3 py-3">
+                <div class="py-3 bg-gray-200 border-gray-900 shadow-md">
+                    <ng-select 
+                        bindLabel="picture_title" 
+                        bindValue="_id" 
+                        placeholder="Select: "
+                        [searchable]="true"  
+                        formControlName="cover" 
+                        [virtualScroll]="true"
+                        required>
+                        <ng-option [value]="picture" [disabled]="picture.disabled" *ngFor="let picture of pictures">
+                            <div class="flex flex-row w-full px-3 py-2 bg-gray-200 border-gray-400 shadow-md">
+                                <img [src]="getPicture(picture?.picture_url)" class="w-12 h-12" />
+                                <span class="w-full px-2 py-2 font-mono"> {{picture?.picture_title}}</span>
+                            </div>
+                        </ng-option>
+                    </ng-select>
+                    <mat-error *ngIf="articleForm.controls['cover'].hasError('required')" > Picture is required </mat-error>
+                </div>
+            </div>
+            <mat-form-field>
+                <input matInput placeholder="Article Title" formControlName="title" required>
+                <mat-error *ngIf="articleForm.controls['title'].hasError('required')" > Article title is required </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Description" formControlName="description" required>
+                <mat-error *ngIf="articleForm.controls['description'].hasError('required')" > Article description is required </mat-error>
+            </mat-form-field>
+            <div class="container w-full">
+                <span *ngIf="articleForm.value.content?.length>=200" class="text-left text-red-900">
+                    Max Caracters Exceeded
+                </span>
+                <span class="text-right text-gray-700">
+                    {{articleForm.value.content?.length || 0}}/200
+                </span>
+            </div>
+            <angular-editor matInput formControlName="content" [config]="editorConfig" required></angular-editor>    
+            <mat-error *ngIf="articleForm.controls['content'].hasError('required')" > Article content is required </mat-error>
+        </form>
+        <div class="mt-4">
+            <button mat-stroked-button color="accent" [disabled]="!articleForm.valid" (click)="submitUpdatedArticle()">Update</button>
+        </div>
+
+    </div>
+</div>
